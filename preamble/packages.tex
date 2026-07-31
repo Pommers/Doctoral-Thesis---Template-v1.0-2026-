@@ -1,0 +1,300 @@
+%%% The following looks horrible, but essentially sets up biblatex for producing
+%%% bibliographies that look nice (you likely will not even need this)
+% \usepackage[style=numeric, maxcitenames=2, isbn=false, url=false,
+% giveninits=true, doi=false, eprint=false, dashed=false, date=year,
+% related=false, mergedate=true]{biblatex}
+% \renewbibmacro{in:}{%
+%   \ifboolexpr{%
+%      test {\ifentrytype{article}}%
+%      or
+%      test {\ifentrytype{inproceedings}}%
+%   }{}{\printtext{\bibstring{in}\intitlepunct}}%
+% }
+% \renewbibmacro*{cite:labelyear+extrayear}{%
+%   \ifentrytype{online}
+%     {}
+%     {\iffieldundef{labelyear}
+%       {}
+%       {\printtext[bibhyperref]{%
+%          \printfield{labelyear}
+%          \printfield{extrayear}}}}}
+
+% \AtEveryBibitem{%
+%   \clearfield{pagetotal}%
+% }
+
+% \DeclareFieldFormat[article,inbook,incollection,techreport,inproceedings,patent,thesis,unpublished]{title}{#1\isdot}
+% \DeclareFieldFormat{pages}{#1}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=authoryear,   % <-- nstead of apa for now
+  natbib=true,        % so \citet, \citep still work
+  sorting=nyt,        % sort binlist on name, year, time
+  sortcites=false,    % Don't sort cite entries
+  maxbibnames=3,      % max names in the bibliography
+  minbibnames=3,
+  maxcitenames=3,
+  mincitenames=1,
+  uniquelist=false,   % <--- don't vary # of names 
+  uniquename=false,   % <--- don't extend names
+  giveninits=true,    % <-- use initials, not full 
+]{biblatex}
+
+% load bibliography files (per chapter) here
+\addbibresource{preamble/bibliography.bib} % .bib file(s)
+% \addbibresource{sections/bibliography/Paper_1_references.bib}
+
+% Configure additional bibliography items
+% Only print year, suppress month/day in bibliography
+\AtEveryBibitem{%
+  \clearfield{month}%
+  \clearfield{day}%
+}
+\AtBeginBibliography{%
+  \renewbibmacro*{date}{%
+    \printdate
+  }
+  \renewbibmacro*{issue+date}{%
+    \setunit{\addcomma\space}%
+    \printdate
+  }
+}
+\setlength{\bibitemsep}{0pt} % prevents extra space biblatex sometimes adds
+\setlength{\bibhang}{3em}  % keep/adjust indent if needed
+\renewcommand{\bibfont}{\singlespacing}
+\setlength{\bibitemsep}{\baselineskip}
+
+\urlstyle{same}
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat{doi}{\href{https://doi.org/#1}{doi:#1}}
+\DeclareFieldFormat{eprint:arxiv}{%
+  \href{https://arxiv.org/abs/#1}{arXiv:#1}%
+}
+
+\usepackage{titlesec} % For advanced section formatting and resolving \sf@counterlist issue
+\usepackage{tocloft}
+% \usepackage[numbers, sort]{natbib}
+% \bibliographystyle{unsrtnat}
+% \usepackage[
+% backend=biber,
+% citestyle=numeric,
+% sorting=ynt
+% ]{biblatex}
+% \addbibresource{hw1.bib} %file for references
+
+\usepackage{lipsum}
+\usepackage[plain]{algorithm} % algorithms package
+\usepackage{algpseudocode} % pseudo-code package
+% \usepackage{amsbsy} % for producing bold maths symbols
+% \usepackage{amsfonts} % an extended set of fonts for maths
+% \usepackage{lmodern}
+% \usepackage{amssymb} % various maths symbols
+\usepackage{bbm}
+\usepackage{bm}
+% \usepackage{amsthm} % for producing theorem-like environments
+\usepackage{datetime2} % managing dates and times
+\usepackage{delimseasy} % makes easy the manual sizing of brackets, square brackets, and curly brackets
+
+\usepackage{multicol} % for two columns
+\usepackage{tabularx}
+\usepackage{enumitem} % customing list environments
+\setlist[description]{labelwidth=1.5cm, leftmargin=2.0cm, style=nextline, font=\bfseries} % Used for multicolumn Abbreviations (Appendix)
+
+\usepackage{extramarks} % extra marks
+\usepackage{fancyhdr} % headers and footers
+\usepackage{float} % makes dealing with floats (e.g. tables and figures) easier
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage{setspace}
+% \newcommand{\swotitem}[1]{\hangindent=1.5em\hangafter=1 #1\\[1.2em]}
+\newcommand{\swotitem}[1]{#1\\[1.2em]}
+\usepackage{framed} % for producing framed boxes
+\usepackage{graphicx} % for including graphics in the document
+\usepackage{wrapfig} % for wrapping figures in text
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{rotating}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage[version=4]{mhchem}
+\usepackage{contour}
+
+% \usepackage{xcolor}
+% Define softer custom tones (optional)
+\definecolor{linkblue}{HTML}{1A4A9C}
+\definecolor{linkred}{HTML}{9C1A1A}
+\definecolor{linkredsoft}{HTML}{B22727}
+\definecolor{linkredthesis}{HTML}{7A1C1C}
+\definecolor{linkrednasa}{HTML}{A6192E}
+
+\definecolor{citegreen}{HTML}{0B6B38}
+\definecolor{urlpurple}{HTML}{6A2CA0}
+
+\usepackage[colorlinks=true,
+            linkcolor=black,
+            citecolor=black,
+            urlcolor=black]{hyperref}
+
+\usepackage[abbreviations, nonumberlist]{glossaries-extra}
+% \setlength{\glsgroupskip}{0pt}
+\renewcommand*{\glsgroupskip}{}%
+% Galaxy types / stellar associations
+\newglossary[gtl]{galtype}{glo}{glg}{Galaxy Types / Stellar Associations}
+% Astrophysical concepts & techniques
+\newglossary[atl]{asttype}{ato}{atg}{Astrophysical Concepts \& Techniques}
+% Missions / Facilities
+\newglossary[mix]{mistype}{mil}{mis}{Missions / Facilities}
+% Miscellaneous
+\newglossary[mox]{othertype}{mol}{mos}{Miscellaneous}
+
+\setabbreviationstyle{long-short}
+% Use the internal (no-index) glossaries, so no makeglossaries step needed
+\makenoidxglossaries
+\glssetcategoryattribute{abbreviation}{glossarylink}{true}
+% After loading glossaries and before \begin{document}:
+\renewcommand*{\glossarysection}[2][]{%
+    % \Needspace{4\baselineskip}% require space for heading + a few lines
+    \section*{#2} \vspace{-3.0em}%
+}
+
+% This is the abbreviation style
+\newglossarystyle{abbrwithoptgloss}{%
+  % Base on the simple 'list' style
+  \setglossarystyle{list}%
+  \renewcommand*{\glossentry}[2]{%
+    \item[\glsentryshort{##1}]%
+    \glstarget{##1}{\glsentrylong{##1}}%
+    \space\glsentryuseri{##1}##2%
+  }%
+  \renewcommand*{\glsgroupskip}{}%
+}
+
+% and this is the glossary style
+\newglossarystyle{listwithneedspace}{%
+  % Start from the standard 'list' style
+  \setglossarystyle{list}%
+  % For each entry:
+  \renewcommand*{\glossentry}[2]{%
+    % Require enough room for the term + a few lines of description
+    \Needspace{4\baselineskip}%
+    \item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}]%
+      \glossentrydesc{##1}##2%
+  }%
+}
+
+% *** Make acronyms behave the way you expect ***
+\glsenablehyper
+\AtBeginDocument{\glsresetall}
+
+\newcommand{\printacronymsection}[2]{
+    \Needspace{4\baselineskip}% require space for heading + a few lines
+    \section*{#2}
+    \begin{multicols}{2}
+        \printnoidxglossary[type=#1, style=abbrwithoptgloss, title={}] 
+    \end{multicols}
+}
+
+\usepackage{mathtools} % package for maths (fixes some deficiences of amsmath so is preferred)
+\usepackage[normalem]{ulem} % underline command (see macros for setup)
+\usepackage{cancel}
+\usepackage{microtype} % better font sizing (extremely helpful with long equations!)
+\usepackage[skip=10pt plus1pt, indent=20pt]{parskip}
+% \usepackage{newtx} % a fonts package
+\usepackage{pdfpages} % for including pdf documents inside the compiled pdf
+\usepackage{pdflscape}
+\usepackage{pgf} % produce pdf graphics using LaTeX
+\usepackage{pgfplots} % create normal/logarithmic plots in two and three dimensions
+\pgfplotsset{compat=1.18} % sorts out the compatability warning
+\usepackage{physics} % useful for vector calculus and linear algebra symbols
+\usepackage{siunitx}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\RenewCommandCopy\qty\SI
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+\sisetup{uncertainty-mode = separate, separate-uncertainty-units = single}
+\usepackage[theorems]{tcolorbox} % for producing coloured boxes
+\tcbuselibrary{theorems} % theorems with tcolorbox
+\usepackage{tikz-3dplot} % for producing 3d plots
+\usepackage{tikz} % for drawing graphics in LaTeX
+\usepackage{tkz-base} % drawing with a Cartesian coordinate system
+\usepackage{tkz-euclide} % drawing in Euclidean geometry
+% \usepackage{xcolor} % a package for colours
+\usepackage[capitalize]{cleveref}
+\usepackage{color}
+\tcbset{highlight math style={enhanced, colframe=red,colback=white,arc=0pt,boxrule=1pt}}
+
+\usepackage{braket} % for bra-ket Dirac notation in QM
+\usepackage{harpoon}
+
+\usetikzlibrary{automata, positioning}
+
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+%\usepackage{mathpazo}
+
+%\setmainfont{Times New Roman}
+%\setmainfont{Comic Sans MS}
+
+\usepackage{docmute}
+% \usepackage{booktabs}
+% \usepackage{microtype}
+% \usepackage[colorlinks=false]{hyperref}
+% \usepackage[capitalize]{cleveref}
+\usepackage{showkeys}
+\usepackage[document]{ragged2e} % for justification and alignment
+% \usepackage{xcolor}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
+\usepackage{caption}
+\usepackage[export]{adjustbox}
+\usepackage[]{mdframed}
+\usepackage{changepage} % for custom margins
+\usepackage{varwidth}   % for dynamic width text boxes
+\usepackage{xspace}
+
+\usepackage{ifxetex}
+\ifxetex{}
+   \usepackage{fontspec}
+   \setmainfont{Times New Roman}
+\fi
+
+\usepackage{preamble/aas_macros}
+% \usepackage{preamble/deluxetable}
+
+% \usepackage{siunitx}
+% \usepackage[sort&compress,numbers]{natbib}
+
+% Need to load this after natbib has been loaded (in packages) else
+% spacing is wrong - this is an issue with Overleaf processing.
+\makeatletter
+\renewenvironment{thebibliography}[1]
+      {\begingroup\doublespacing
+      \chapter*{\bibname}%
+      \singlespacing
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \vspace{-42pt}  % makes space between title and text zero
+      \vspace{2\baselineskip}  % add two blank line spaces
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}
+            }%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist\endgroup}
+\makeatother

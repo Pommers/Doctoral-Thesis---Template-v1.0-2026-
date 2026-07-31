@@ -1,0 +1,109 @@
+%\documentclass[masters,draft]{UTRGVthesis}
+\documentclass[phd,final]{UTRGVthesis}
+
+%\documentclass[masters,final, nodedication, noacknowledgments]{UTRGVthesis}
+% The following class options are available
+%
+%   masters   : Produces the masters thesis preliminary pages
+%   phd   : Produces the phd dissertation preliminary pages
+%   draft : draft version (does not calculate hyperlinks)
+%   final : 
+%   candidacy : does not include LOT and LOF
+%   noacknowledgments : Removes the acknowledgments page - remove this to include
+%   nodedication: Removes the dedication page
+%   nodeclaration: Removes the declaration page for prepublished works
+
+\input{preamble/packages} % Package includes - mandatory
+\input{preamble/macros} % macro definitions - mandatory
+\input{preamble/settings} % This is where names, titles and committee members, etc., are set up - mandatory
+\input{preamble/variables} % imports the variables.tex file from the preamble directory, which includes variables used throughout the text - optional
+\input{preamble/acronyms-glossary} % This file includes glossary and abbreviation definitions which can be referenced in the text and printed as appendices - optional
+\input{preamble/quotes} % If quotes are included at the beginning of chapters the commands are setup in this file - optional
+\input{preamble/bib_alias} % for setting consistent aliases for use during the dissertation - optional
+
+\Abstract{%
+    \input{sections/abstract}
+}
+
+\Dedication{%
+    \input{sections/dedication}
+}
+
+\Acknowledgments{%
+    \input{sections/acknowledgments}
+}
+
+\BiographicalSketch{%
+    \input{sections/biographical}
+}
+
+\AtBeginDocument{%
+    \ExecuteBibliographyOptions{maxbibnames=3,maxcitenames=3}%
+    \DeclareNameAlias{author}{family-given}% all authors: Family, G.
+    \DeclareNameAlias{editor}{family-given}% editors too, just in case
+    \DeclareNameAlias{translator}{family-given}% optional
+    \glsresetall
+}
+
+\begin{document}
+
+\frontmatter
+% \renewcommand{\contentsname}{TABLE OF CONTENTS\vspace{-0.20in}}
+% \renewcommand\listfigurename{LIST OF FIGURES\vspace{-0.20in}}
+% \renewcommand\listtablename{LIST OF TABLES\vspace{-0.20in}}
+% \renewcommand{\bibname}{REFERENCES}
+% \renewcommand{\chaptername}{CHAPTER}
+\settitles
+\makepreliminarypages{}
+
+% \tableofcontents
+
+% \doublespacing{}
+
+% \listoftables
+% \listoffigures
+\glsresetall
+\mainmatter{
+    \hypersetup{
+      linkcolor=linkblue,
+      citecolor=citegreen,
+      urlcolor=urlpurple
+    } % change from 'black font' to custom colors after rendering of the front pages.
+    \input{chapters/01-introduction}
+    \input{chapters/02-example-chapter}
+    \input{chapters/03-published-paper_chapter}
+    \input{chapters/04-example-chapter}
+    \input{chapters/05-discussion}
+    \input{chapters/06-conclusions}
+}
+
+% \bibliographystyle{siam}
+% \bibliographystyle{plainnat} % this style shows doi
+% \bibliographystyle{plain}
+% \bibliography{sections/bibliography,sections/bibliography/Paper_1_references}
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{\bibname} % 
+% \printbibliography[title={\bibname}]
+
+\references
+
+\appendix
+\input{appendices/a. acronyms}
+\input{appendices/b. glossary}
+\input{appendices/c. mw cluster obs}
+\input{appendices/d. hydrosim}
+\input{appendices/e. ucd channels}
+
+% \chapter{Abbreviations, Acronyms and Initialisms}
+% % \printglossary[type=\acronymtype, title={Galaxy Types / Stellar Associations}]
+% % \glsaddall[types={galtype,asttype}]
+
+% \printnoidxglossary[type=galtype, title={Galaxy Types / Stellar Associations}]
+% \printnoidxglossary[type=asttype, title={Astrophysical Concepts \& Techniques}]
+% \printnoidxglossary[type=mistype, title={Missions / Facilities}]
+% \printnoidxglossary[type=othertype, title={Miscellaneous}]
+
+\biographypage{}
+
+\end{document}
