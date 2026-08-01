@@ -8,7 +8,7 @@ Additional functionality for previously published manuscripts, including declara
 
 ## Quick Start
 
-The main changes you will need to make using this template, will be to amend and personalise the `settings.tex` file (in the `preamble` subfolder). This file includes you name, the title of your thesis or dissertation, and you committee member names.
+The main changes you will need to make using this template, will be to amend and personalise the `settings.tex` file (in the `preamble` subfolder). This file includes your name, the title of your thesis or dissertation, and you committee member names. If you have any prepublished works you are including as chapters, these can also be defined in the `settings.tex` file.
 
 ## Overview
 

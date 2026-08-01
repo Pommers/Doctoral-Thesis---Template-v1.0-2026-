@@ -45,23 +45,15 @@
     \glsresetall
 }
 
+% The document begins here with class defined front pages and titles.
 \begin{document}
 
 \frontmatter
-% \renewcommand{\contentsname}{TABLE OF CONTENTS\vspace{-0.20in}}
-% \renewcommand\listfigurename{LIST OF FIGURES\vspace{-0.20in}}
-% \renewcommand\listtablename{LIST OF TABLES\vspace{-0.20in}}
-% \renewcommand{\bibname}{REFERENCES}
-% \renewcommand{\chaptername}{CHAPTER}
+
 \settitles
 \makepreliminarypages{}
 
-% \tableofcontents
-
-% \doublespacing{}
-
-% \listoftables
-% \listoffigures
+% This resets the usage of glossary and abbreviation items in frontmatter pages.
 \glsresetall
 \mainmatter{
     \hypersetup{
@@ -77,33 +69,16 @@
     \input{chapters/06-conclusions}
 }
 
-% \bibliographystyle{siam}
-% \bibliographystyle{plainnat} % this style shows doi
-% \bibliographystyle{plain}
-% \bibliography{sections/bibliography,sections/bibliography/Paper_1_references}
-% \cleardoublepage
-% \phantomsection
-% \addcontentsline{toc}{chapter}{\bibname} % 
-% \printbibliography[title={\bibname}]
-
+% The bibliography should be printed before the appendices
 \references
 
+% The appendix flag will typeset the appropriate pages in front and set counters as appropriate
 \appendix
 \input{appendices/a. acronyms}
 \input{appendices/b. glossary}
-\input{appendices/c. mw cluster obs}
-\input{appendices/d. hydrosim}
-\input{appendices/e. ucd channels}
+\input{appendices/c. appendix_example}
 
-% \chapter{Abbreviations, Acronyms and Initialisms}
-% % \printglossary[type=\acronymtype, title={Galaxy Types / Stellar Associations}]
-% % \glsaddall[types={galtype,asttype}]
-
-% \printnoidxglossary[type=galtype, title={Galaxy Types / Stellar Associations}]
-% \printnoidxglossary[type=asttype, title={Astrophysical Concepts \& Techniques}]
-% \printnoidxglossary[type=mistype, title={Missions / Facilities}]
-% \printnoidxglossary[type=othertype, title={Miscellaneous}]
-
+% The biography / vita page should be the final page
 \biographypage{}
 
 \end{document}
