@@ -17,25 +17,5 @@ It is split into three main parts
 - **sections folder** - This is a subfolder which will contain your additional sections, such as the *abstract*, *acknowledgments*, *dedications*, etc. These must be referenced and input in the relevant section of the `main.tex` document (see above). Many of these are optional, depending upon the type of document.
 - **chapters folder** - This is a subfolder which will contain all of your chapters. These must be referenced and input in the relevant section of the `main.tex` document (see above), but this is where the meat of your content should be included.
 - **preamble folder** - This is just a folder containing files which include useful packages,
-\end{itemize}
 
 
-
-\section{Chapter declarations}
-Use \verb|\chapterpublicationnote| at the start of any chapter based on a published paper.
-    \begin{itemize}
-        \item #1 = bib key
-        \item #2 = reproduced/adapted statement
-        \item #3 = licence statement, including link
-        \item #4 = licence link or extra copyright note
-        \item #5 = contribution statement (optional)
-    \end{itemize}
-    \eg 
-    \begin{verbatim}
-    \chapterpublicationnote
-        {Pomeroy_2025}
-        {This chapter is adapted from the published article.}
-        {This article was published under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence:
-        https://creativecommons.org/licenses/by/4.0/}
-        {The candidate led the analysis, interpretation, figure preparation, and manuscript drafting.}
-    \end{verbatim}
