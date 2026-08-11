@@ -110,11 +110,8 @@ preamble/acronyms-glossary.tex
 
 The template can automatically group acronym entries into user-defined categories.
 
-Detailed instructions and examples are provided in:
-
-```text
-documentation/acronyms-and-glossary.md
-```
+Detailed instructions and examples are provided in
+[`documentation/acronyms-and-glossary.md`](documentation/acronyms-and-glossary.md).
 
 Most users should not need to modify the underlying glossary macros.
 
@@ -148,7 +145,8 @@ Additional documentation for template-specific features is provided in the `docu
 
 Current guides include:
 
-- `acronyms-and-glossary.md` — acronym and glossary definitions, categories, linked entries, and usage.
+- Detailed instructions and examples are provided in
+[`acronyms-and-glossary.md`](documentation/acronyms-and-glossary.md). — acronym and glossary definitions, categories, linked entries, and usage.
 
 Further documentation may be added for features that require more explanation than is appropriate in this README.
 
