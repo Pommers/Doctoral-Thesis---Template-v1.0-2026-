@@ -1,9 +1,37 @@
+
+% --------------------------------------------------------------------------
+% Acronym and glossary categories
+%
+% Add, remove, or rename categories here. The corresponding sections in
+% the List of Acronyms are generated automatically.
+% --------------------------------------------------------------------------
+
+\DeclareAcronymType
+    {phystype}{phl}{pho}{phg}
+    {Physical Quantities and Concepts}
+
+\DeclareAcronymType
+    {stattype}{stl}{sto}{stg}
+    {Statistics and Mathematics}
+
+\DeclareAcronymType
+    {compmethodtype}{cml}{cmo}{cmg}
+    {Computation and Analysis}
+
+\DeclareAcronymType
+    {orgtype}{orl}{oro}{org}
+    {Scientific Organizations and Facilities}
+
+\DeclareAcronymType
+    {othertype}{otl}{oto}{otg}
+    {Miscellaneous}
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Definition of a macro for Glossary / Abbrev entries 
 %  Some entries need cross linking between both sections
 %  This macro will achieve this easily
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Arguments:
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arguments:
 % Paired abbreviation + glossary entry
 % Optional args:
 %   #1  options for \newabbreviation (type=..., etc.)
@@ -60,306 +88,206 @@
 %  section entry in the abbreviation list
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newabbrglspair[type=asttype]
-    {icm}{ICM}{intracluster medium}{intracluster-medium}{%
-    A hot, diffuse plasma situated between galaxies in a cluster, consisting predominantly of ionized hydrogen and helium. The ICM is heated by internal processes within the cluster galaxies, especially the relativistic jets from nuclear \glsnouse{smbh}, but also interactions, between the galaxies, such as mergers. Due to its extreme temperature. It is detected via X-ray, with emissions produced predominantly via \glshyperlink{bremsstrahlung}, and \glsnouse{sz} observations.%
-}{}{intracluster media}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paired abbreviation + glossary entries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newabbrglspair[type=asttype]
-    {ism}{ISM}{interstellar medium}{interstellar-medium}{%
-    The diffuse mixture of gas, dust, cosmic rays, and magnetic fields that occupies the space between stars within a galaxy. It exists in multiple thermal and ionization phases, ranging from cold molecular clouds to hot, ionized gas, and plays a central role in star formation, stellar feedback, and chemical evolution. The \glsnouse{ism} is distinct from the \glshyperlink{intracluster-medium}, which permeates the space between galaxies in clusters.%
-}{}{interstellar media}
-
-\newabbrglspair[type=asttype]
-    {sz}{SZ}{Sunyaev--Zeldovich effect}{sz-term}{%
-    The spectral distortion of the \glsnouse{cmb} interacting with high-energy electrons in the \glsnouse{icm} in galaxy clusters. The process involves \glshyperlink{inverse-compton-scattering}, in which the low-energy \glsnouse{cmb} photons receive an average energy boost during collision with the higher-energy cluster electrons. Observed distortions of the \glsnouse{cmb} spectrum are used to detect the disturbance of density in the universe. Using the Sunyaev--Zeldovich effect, dense clusters of galaxies have been observed. It is named for Rashid Sunyaev and Yakov B. Zeldovich who predicted its existence.%
+\newabbrglspair[type=phystype]
+    {em}{EM}{electromagnetic}{electromagnetic-radiation}{%
+    Radiation consisting of coupled electric and magnetic fields that
+    propagate through space. Electromagnetic radiation spans a broad range
+    of wavelengths and frequencies, including radio waves, visible light,
+    ultraviolet radiation, X-rays, and gamma rays.
 }{}{}
 
-\newabbrglspair[type=galtype]
-    {gcs}{GCS}{globular cluster system}{gcs-term}{%
-    These are the systems or populations of \glsnousepl{gc} which form around galaxies. Originally thought to be largely \glsnousepl{ssp}, it is now recognized that multiple star-forming periods may occur in evolution of a host galaxy, and this causes a bimodal population to evolve. Blue (metal-poor) \glsnousepl{gc} tend to be less massive and more spatially distributed, and red (metal-rich) \glsnousepl{gc} are more massive and more likely to be found closer to the center of a progenitor galaxy.%
+\newabbrglspair[type=phystype]
+    {ke}{KE}{kinetic energy}{kinetic-energy}{%
+    The energy associated with the motion of an object. In classical
+    mechanics, the kinetic energy of an object of mass $m$ moving with
+    speed $v$ is $K = \frac{1}{2}mv^2$.
 }{}{}
 
-\newabbrglspair[type=asttype]
-    {cmb}{CMB}{cosmic microwave background}{cmb-term}{%
-    The microwave radiation that fills all space in the observable universe and is considered to be a relic of the Big Bang origin of the Universe. It was first accidentally detected in 1965 by American radio astronomers Arno Allan Penzias and Robert Woodrow Wilson after being predicted in the 1940s. In Big Bang cosmology, during the earliest periods, the universe was filled with an opaque fog of dense, hot plasma of sub-atomic particles. As the universe expanded, this plasma naturally cooled to the point where protons and electrons were able to combine into neutral atoms of mostly hydrogen. While the plasma scattered thermal radiation (see \glshyperlink{thomson-scattering}), the neutral atoms were unable to do the same, and the universe became transparent. This is known as the epoch of recombination, and this decoupling event released these energetic photons to travel freely throughout the Universe. Due to the continued expansion of space, these photons have experienced cosmological redshift, and have lost energy as their wavelengths have been stretched to microwaves with a blackbody peak of $\sim\!2.73$ K.%
+\newabbrglspair[type=phystype]
+    {pe}{PE}{potential energy}{potential-energy}{%
+    Energy associated with the position or configuration of a physical
+    system. Examples include gravitational potential energy and elastic
+    potential energy.
 }{}{}
 
-\newabbrglspair[type=asttype]
-    {agn}{AGN}{active galactic nuclei}{active-galactic-nuclei}{%
-    A compact region at the center of a galaxy where gas accretes onto a \glsnouse{smbh}, releasing large amounts of energy across the electromagnetic spectrum. AGN activity can drive powerful outflows and relativistic jets that interact with the surrounding interstellar and \glsnouse{icm}. In galaxy clusters, AGN feedback plays a key role in regulating cooling of the hot intracluster gas by inflating cavities (see \glsnouse{AGN-driven-cavity}), generating \glsnousepl{shock-front}, and depositing mechanical energy into the \glsnouse{icm}. This process helps prevent runaway cooling and star formation in massive galaxies, and strongly influences the thermodynamic evolution of cluster cores.%
+\newabbrglspair[type=stattype]
+    {pdf}{PDF}{probability density function}{probability-density-function}{%
+    A function describing the relative likelihood that a continuous random
+    variable takes a particular value. The integral of a probability
+    density function over an interval gives the probability that the
+    variable lies within that interval.
 }{}{}
 
-\newabbrglspair[type=asttype]
-    {cfe}{CFE}{cluster formation efficiency}{cluster-formation-efficiency}{%
-    The fraction of star formation that ends up in bound stellar clusters, The \glsnouse{cfe}, or $\Gamma$, is a key measure influenced by gas density, \glshyperlink{star-formation-rate}, feedback from massive stars (radiation, winds), turbulence, and galaxy environment, generally increasing in denser, higher-redshift environments but often lower than 100\% due to feedback. It's crucial for understanding how massive clusters form and survive over cosmic time \citep[\eg][]{McLaughlin_1999,Kruijssen_2012}.
+\newabbrglspair[type=stattype]
+    {sd}{SD}{standard deviation}{standard-deviation}{%
+    A measure of the dispersion of a set of values about their mean.
+    For a probability distribution, the standard deviation is the square
+    root of the variance.
 }{}{}
 
-\newabbrglspair[type=asttype]
-    {sfr}{SFR}{star formation rate}{star-formation-rate}{%
-    The rate at which new stars are formed in a galaxy. It can be represented by a function that describes the evolution of star formation over time, typically increasing during the early stages of galaxy formation before the supply of neutral gas is exhausted. The SFR is controlled by the balance between gas supply and feedback. The supply of available gas will be affected by accretion and collisions, and feedback will be provided through supernovae, radiation and black hole jets. The overall SFR will thus be influenced by gas density, turbulence, temperature, magnetic fields, and critically in a cluster, the galactic environment \citep{Schmidt_1959, Kennicutt_1998, McKee_2007}.
+\newabbrglspair[type=compmethodtype]
+    {mc}{MC}{Monte Carlo}{monte-carlo-method}{%
+    A class of computational methods that use repeated random sampling to
+    estimate numerical quantities, propagate uncertainty, or explore
+    complex parameter spaces.
 }{}{}
 
-\newabbrglspair[type=asttype]
-    {tde}{TDE}{tidal disruption event}{tidal-disruption-event}{%
-    A \glshyperlink{tidal-stripping} event involving a black hole and a star, where the gaseous outer layers of a main sequence star are stripped by the intense gravity of a black hole during a close encounter. Formation of an accretion disc around the black hole may result, and consequently increased flaring and luminosity. In some circumstances, the star may be totally disrupted. Disruption of compact remnants (white dwarfs and neutron stars) has also been hypothesized.
-}{}{}
-
-\newabbrglspair[type=asttype]
-    {[alpha/fe]}{[$\alpha$/Fe]}{$\alpha$ abundance}{alpha-abundance}{%
-    The logarithmic ratio of \glshyperlink{alpha-element} to iron abundance relative to solar, commonly used as a tracer of star-formation timescale. $\alpha$-enhanced values indicate rapid enrichment dominated by core-collapse \glslinkpl{supernova}, while solar values reflect extended chemical evolution including Type Ia \glslinkpl{supernova}. See also \glshyperlink{metallicity}.
-}{}{}
-
-\newabbrglspair[type=asttype]
-    {sn}{SN}{supernova}{supernova}{%
-    A supernova is a powerful and luminous stellar explosion marking the end of a star's evolutionary life. Supernovae release vast amounts of energy and eject enriched material into the surrounding interstellar medium, playing a key role in chemical enrichment and feedback processes in galaxies. Observationally, supernovae are broadly classified into \glslink{type-I-supernova}{Type~I} and \glslink{type-II-supernova}{Type~II} events, reflecting differences in their progenitor systems and explosion mechanisms.
-  }{SNe}{supernovae}
-
-\newabbrglspair[type=mistype]
-    {mos}{MOS}{multi-object spectroscopy}{multi-object-spectroscopy}{%
-    A spectroscopic technique which captures individual spectra for many discrete, separated targets simultaneously across a wide field of view. Uses slit masks or tiny robotic fibers to isolate specific objects (like distinct galaxies or stars). The output is a collection of 1D spectra. It is highly efficient for taking quick snapshots of dozens of objects, but it discards spatial information about the objects themselves. See also \glshyperlink{integral-field spectroscopy}.
-  }{}{}
-
-\newabbrglspair[type=mistype]
-    {ifs}{IFS}{integral-field spectroscopy}{integral-field spectroscopy}{%
-    A spectroscopic technique which captures a continuous spectrum for every single pixel across a contiguous, two-dimensional patch of the sky, creating a 3D data cube. Uses an \glshyperlink{ifu} equipped with image slicers, lenslet arrays, or fiber bundles to chop up an image. The output is a data cube: two axes representing spatial dimensions (X and Y), and a third axis representing the light's spectrum. You get a spectrum for every "spaxel" (spatial pixel). See also \glshyperlink{multi-object-spectroscopy}.
-  }{}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Single Abbreviation / Acronym / Initialisation  
 % i.e. no companion glossary entries start here 
 %   - note the 'type' will determine the section entry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Galaxy Types / Stellar Associations
-\newabbreviation[type=galtype,plural=BCGs,longplural=brightest cluster galaxies]{bcg}{BCG}{brightest cluster galaxy}
-\newabbreviation[type=galtype,plural=cDs]{cd}{cD}{central-dominant}
-\newabbreviation[type=galtype,plural=cEs]{ce}{cE}{compact elliptical}
-\newabbreviation[type=galtype,plural=CSSs]{css}{CSS}{compact stellar system}
-\newabbreviation[type=galtype,plural=dEs]{de}{dE}{dwarf elliptical}
-\newabbreviation[type=galtype,plural=dSphs]{dsph}{dSph}{dwarf spheroidal}
-\newabbreviation[type=galtype,plural=GCs]{gc}{GC}{globular cluster}
-\newabbreviation[type=galtype,plural=ICGCs]{icgc}{ICGC}{intracluster globular cluster}
-\newabbreviation[type=galtype,plural=ICUCDs]{icucd}{ICUCD}{intracluster ultracompact dwarf}
-\newabbreviation[type=galtype,plural=gEs]{ge}{gE}{giant elliptical}
-\newabbreviation[type=galtype,plural=SSPs]{ssp}{SSP}{single-stellar population}
-\newabbreviation[type=galtype,plural=UCDs]{ucd}{UCD}{ultracompact dwarf}
-\newabbreviation[type=galtype,plural=UDGs]{udg}{UDG}{ultra-diffuse galaxy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Single abbreviations / acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Astrophysical concepts
-\newabbreviation[type=asttype]{cmd}{CMD}{colour--magnitude diagram}
-% \newabbreviation[type=asttype]{cmb}{CMB}{cosmic microwave background}
-\newabbreviation[type=asttype]{dm}{DM}{dark matter}
-\newabbreviation[type=asttype]{gclf}{GCLF}{globular cluster luminosity function}
-\newabbreviation[type=asttype]{gmm}{GMM}{Gaussian mixture model}
-\newabbreviation[type=asttype]{hr}{HR}{Hertzprung-Russell}
-\newabbreviation[type=asttype]{uv}{UV}{ultraviolet}
-\newabbreviation[type=asttype]{ir}{IR}{infrared}
-\newabbreviation[type=asttype]{icl}{ICL}{intracluster light}
-% \newabbreviation[type=asttype]{icm}{ICM}{intracluster medium\glsadd{intracluster-medium}%
-   % \,(see \glslink{intracluster-medium}{Glossary})}
-\newabbreviation[type=asttype]{imbh}{IMBH}{intermediate-mass black hole}
-\newabbreviation[type=asttype]{lsb}{LSB}{low surface brightness}
-\newabbreviation[type=asttype]{smbh}{SMBH}{supermassive black hole}
-% \newabbreviation[type=asttype]{sz}{SZ}{Sunyaev-Zel'dovich effect\glsadd{Sunyaev-Zel'dovich}%
-%    \,(see \glslink{Sunyaev-Zel'dovich}{Glossary})}
+% Physical quantities and concepts
+\newabbreviation[type=phystype]{ac}{AC}{alternating current}
+\newabbreviation[type=phystype]{dc}{DC}{direct current}
+\newabbreviation[type=phystype]{emf}{EMF}{electromotive force}
+\newabbreviation[type=phystype]{ir}{IR}{infrared}
+\newabbreviation[type=phystype]{uv}{UV}{ultraviolet}
 
-% Mission / facilities
-\newabbreviation[type=mistype]{alma}{ALMA}{Atacama Large Millimeter/submillimeter Array}
-\newabbreviation[type=mistype]{desi}{DESI}{Dark Energy Spectroscopic Instrument}
-\newabbreviation[type=mistype]{hst}{HST}{Hubble Space Telescope}
-\newabbreviation[type=mistype]{acs}{ACS}{Advanced Camera for Surveys}
-\newabbreviation[type=mistype]{mgcls}{MGCLS}{MeerKAT Galaxy Cluster Legacy Survey}
-\newabbreviation[type=mistype]{lofar}{LOFAR}{LOw Frequency ARray}
-\newabbreviation[type=mistype]{sdss}{SDSS}{Sloan digital sky survey}
-\newabbreviation[type=mistype]{eROSITA}{eROSITA}{extended ROentgen Survey with an Imaging Telescope Array}
-\newabbreviation[type=mistype]{ROSAT}{ROSAT}{ROentgen SATellite}
-\newabbreviation[type=mistype]{esa}{ESA}{European Space Agency}
-\newabbreviation[type=mistype]{eso}{ESO}{European Southern Observatory}
-\newabbreviation[type=mistype]{jaxa}{JAXA}{Japan Aerospace Exploration Agency}
-\newabbreviation[type=mistype]{nasa}{NASA}{National Aeronautics and Space Administration}
-\newabbreviation[type=mistype]{muse}{MUSE}{Multi Unit Spectroscopic Explorer}
-\newabbreviation[type=mistype]{vlt}{VLT}{Very Large Telescope}
-\newabbreviation[type=mistype]{ifu}{IFU}{Integral Field Unit}
-\newabbreviation[type=mistype]{nirspec}{NIRSpec}{near-infrared spectrograph}
-\newabbreviation[type=mistype]{jwst}{JWST}{James Webb Space Telescope}
-\newabbreviation[type=mistype]{askap}{ASKAP}{Australian Square Kilometre Array Pathfinder}
-\newabbreviation[type=mistype]{elt}{ELT}{extremely large telescope}
-\newabbreviation[type=mistype]{gmt}{GMT}{giant Magellan telescope}
-\newabbreviation[type=mistype]{tmt}{TMT}{thirty meter telescope}
+% Statistical and mathematical terms
+\newabbreviation[type=stattype]{ci}{CI}{confidence interval}
+\newabbreviation[type=stattype]{cdf}{CDF}{cumulative distribution function}
+\newabbreviation[type=stattype]{mle}{MLE}{maximum likelihood estimation}
+\newabbreviation[type=stattype]{pca}{PCA}{principal component analysis}
+\newabbreviation[type=stattype]{rms}{RMS}{root mean square}
 
-% Other types
-\newabbreviation[type=othertype]{aas}{AAS}{American Astronomical Society}
-\newabbreviation[type=othertype]{apj}{ApJ}{Astrophysical Journal}
-\newabbreviation[type=othertype]{fras}{FRAS}{Fellow of the Royal Astronomical Society}
-\newabbreviation[type=othertype]{ic}{IC}{Index Catalogue}
-\newabbreviation[type=othertype]{mast}{MAST}{Mikulski Archive for Space Telescopes}
-\newabbreviation[type=othertype]{ngc}{NGC}{New General Catalogue}
-\newabbreviation[type=othertype]{ngvs}{NGVS}{Next-Generation Virgo Survey}
-\newabbreviation[type=othertype]{swot}{SWOT}{strengths, weaknesses, opportunities, threats}
-\newabbreviation[type=othertype]{uclan}{UCLan}{University of Central Lancashire}
-\newabbreviation[type=othertype]{utrgv}{UTRGV}{University of Texas Rio Grande Valley}
-\newabbreviation[type=othertype]{wp}{WP}{work package}
+% Computing and analysis
+\newabbreviation[type=compmethodtype]{api}{API}{application programming interface}
+\newabbreviation[type=compmethodtype]{cpu}{CPU}{central processing unit}
+\newabbreviation[type=compmethodtype]{gpu}{GPU}{graphics processing unit}
+\newabbreviation[type=compmethodtype]{hpc}{HPC}{high-performance computing}
+\newabbreviation[type=compmethodtype]{mcmc}{MCMC}{Markov chain Monte Carlo}
+
+% Scientific organizations / facilities
+\newabbreviation[type=orgtype]{aps}{APS}{American Physical Society}
+\newabbreviation[type=orgtype]{nsf}{NSF}{National Science Foundation}
+\newabbreviation[type=orgtype]{nist}{NIST}{National Institute of Standards and Technology}
+\newabbreviation[type=orgtype]{utrgv}{UTRGV}{University of Texas Rio Grande Valley}
+
+% Miscellaneous scientific usage
+\newabbreviation[type=othertype]{doi}{DOI}{digital object identifier}
+\newabbreviation[type=othertype]{si}{SI}{International System of Units}
+\newabbreviation[type=othertype]{snr}{SNR}{signal-to-noise ratio}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Single Glossary entries (i.e. no companion abbreviation 
 %   - start here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newglossaryentry{virial-radius}{%
-    name={virial radius},
-    description={The radius $r_{\rm{vir}}$ within which the \glshyperlink{virial-theorem} applies and is the radius at which the density is equal to some multiple ($\Delta _{c}$) of the critical density $\rho_{c}$ of the universe at the redshift of the system. Typically, $\Delta _{c}=200$ is used.}%
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Single glossary entries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newglossaryentry{virial-mass}{%
-    name={virial mass},
-    description={The mass of a gravitationally bound astrophysical system, assuming the \glshyperlink{virial-theorem} applies. In the context of galaxy formation and dark matter halos, the virial mass $M_{\rm{vir}}$ is defined as the mass enclosed within the \glshyperlink{virial-radius} $r_{\rm{vir}}$ of a gravitationally bound system, a radius within which the system obeys the \glshyperlink{virial-theorem}.
-    }%
-}
-
-\newglossaryentry{virial-theorem}{%
-    name={virial theorem},
-    description={A theorem which allows the average total kinetic energy for a complex system to be calculated. It takes the simple form where twice the average total kinetic energy $\langle T\rangle$ equals $n$ times the average total potential energy { $\langle V_{\text{TOT}}\rangle$}. For gravitational attraction (\ie stars, galaxies and galaxy clusters) $n=-1$, so the average total kinetic energy  equals negative half the average total potential energy.
-    }%
-}
-
-\newglossaryentry{jeans-instability}{%
-    name={Jeans instability},
-    description={Named after the English physicist James Jeans, this concept describes an instability that leads to the gravitational collapse of a cloud of gas or dust. It occurs when the internal gas pressure is not strong enough to prevent the gravitational collapse of a region filled with matter. The Jeans collapse criterion will be met if a gas cloud is too cool for a given mass, or too massive for a given temperature. }%
-}
-
-\newglossaryentry{synchrotron-rad}{%
-    name={synchrotron radiation},
-    description={The radiation emitted when charged particles, traveling at relativistic velocities, are subject to an acceleration perpendicular to their velocity ($a\perp v$), as opposed to \glsnouse{bremsstrahlung}, where acceleration is parallel to the direction of motion. It is produced in astrophysical situations by fast electrons moving through magnetic fields. Synchrotron radiation is the ultra-relativistic special case of radiation emitted by particles in a magnetic field, for which the general term is gyromagnetic radiation. Radiation emitted by non-relativistically moving charged particles in a magnetic field is called \glslink{cyclotron-rad}{cyclotron emission}.}%
-}
-
-\newglossaryentry{bremsstrahlung}{%
-    name={bremsstrahlung},
-    description={From the German for `braking radiation', emissions from this process are produced by the deceleration of a charged particle by another charged particle, typically an electron decelerating as a result of its passage by a proton or atomic nucleus. The decelerated particle loses kinetic energy which is emitted as a photon of radiation. Sometime also referred to as `free-free' radiation, as the electrons are free (not bound) both before and after the process.}%
-}
-
-\newglossaryentry{cyclotron-rad}{%
-    name={cyclotron radiation},
-    description={The electromagnetic radiation emitted by non-relativistic charged particles accelerating in a magnetic field. The Lorentz force on the particles acts perpendicular to both the magnetic field lines and the direction of the charged particles' velocity. As they spiral around the magnetic field lines, they experience an acceleration causing them to emit radiation. (See also: \glslink{synchrotron-rad}{synchrotron radiation}).}%
-}
-
-\newglossaryentry{compton-scattering}{%
-    name={Compton scattering},
-    description={The quantum theory of scattering of a high-frequency photon through its interaction with a charged particle, which is usually an electron. Discovered in 1923 by Arthur Holly Compton, when a high-frequency photon interacts with a charged particle, the photon's energy is reduced, with a corresponding increase in wavelength.  Due to conservation of energy, the energy that is lost by the photon is transferred to the recoiling particle. (See also \glshyperlink{inverse-compton-scattering})}%
-}
-
-\newglossaryentry{inverse-compton-scattering}{%
-    name={inverse Compton scattering},
-    description={The same interaction as \gls{compton-scattering}, but conversely involves a high-energy charged particle and low-frequency photon. As the recoiling particle initially carries more energy than the photon, the scattered photon increases in energy. When the charged particles are electrons from the \glsnouse{icm} and the photons are from the \glsnouse{cmb}, this effect is known as the \glshyperlink{sz-term}.}%
-}
-
-\newglossaryentry{thomson-scattering}{%
-    name={Thomson scattering},
-    description={First explained by the physicist J. J. Thomson, this describes the elastic scattering of a photon in low-energy encounters, \ie provided the particle is non-relativistic. It is the low-energy limit of \glshyperlink{compton-scattering}, where the particle's kinetic energy and photon frequency do not change as a result of the scattering.}%
-}
-
- \newglossaryentry{cold-front}{%
-    name={cold front},
-    plural={cold fronts},
-    description={A sharp discontinuity in X-ray surface brightness and gas temperature in the \glsnouse{icm}, caused by the motion of cooler, dense gas through the surrounding hotter gas. Cold fronts typically arise from sloshing motions during mergers or galaxy infall.}%
-}
-
-\newglossaryentry{AGN-driven-cavity}{%
-    name={AGN-driven cavity},
-    plural={AGN-driven cavities},
-    description={Low-density bubble carved into the \glsnouse{icm} by the jet(s) from an \glsnouse{agn}. These cavities displace hot gas and are often outlined by bright rims of compressed plasma, providing evidence for mechanical feedback and heating.}%
-}
-
-\newglossaryentry{shock-front}{%
-    name={shock front},
-    plural={shock fronts},
-    description={A boundary in the \glsnouse{icm} where gas density, pressure, and temperature rise abruptly due to supersonic merger activity or \glsnouse{agn} outflows. Shocks are key signatures of cluster assembly and kinetic energy dissipation.
-    }%
-}
-
-\newglossaryentry{ram-pressure-stripping}{%
-    name={ram-pressure stripping},
-    description={The process by which the cold gas bound to a galaxy, which is moving relative to the hot gas in the \glsnouse{icm} is stripped from the galaxy. The ram pressure, proportional to the density of the \glsnouse{icm} plasma and the squared velocity of the galaxy relative to the \glsnouse{icm}, can strip gas out of the galaxy if the ram pressure force is greater than the gravitational force, bonding gas to the galaxy. This hydrodynamic pressure exerted by the \glsnouse{icm} can strip atomic, ionized, and molecular gas, suppressing star formation and altering morphology.
-    }%
-}
-
-\newglossaryentry{tidal-stripping}{%
-    name={tidal stripping},
-    description={Occurs during encounters between objects when the gravitational potential of a massive object exceeds the the binding potential of looser bound elements for a less massive object. For example, when a larger galaxy pulls stars, gas or part of the \glsnouse{gc} population from a smaller galaxy, due to its larger gravitational attraction, during encounters and interactions. Tidal tails and tidal streams may result from tidal stripping as observational signatures of the process. A similar process occurs in \glshyperlink{tidal-disruption-event}s involving black holes and stars.
-    }%
-}
-
-\newglossaryentry{radio-halo}{%
-    name={radio halo},
-    plural={radio halos},
-    description={
-    A diffuse, megaparsec-scale, steep-spectrum radio source located at the centers of merging galaxy clusters. Radio halos trace relativistic electrons and magnetic fields stirred by large-scale turbulence.
-    }%
-}
-
-\newglossaryentry{radio-relic}{%
-    name={radio relic},
-    plural={radio relics},
-    description={
-    An elongated, peripheral radio source associated with a cluster merger \glshyperlink{shock-front}. Relics trace shock-accelerated cosmic-ray electrons and amplified magnetic fields.
-    }%
-}
-
-\newglossaryentry{quenching}{%
-    name={quenching},
-    description={
-    The process by which a galaxy's star formation declines or ceases. In galaxy clusters, quenching is often linked to environmental processes such as \glshyperlink{ram-pressure-stripping}, multiple close-encounters, and starvation.
-    }%
-}
-
-\newglossaryentry{metallicity}{%
-    name={metallicity},
-    description={
-    The term used by astronomers to describe the proportion of elements other than hydrogen in an astrophysical object, \eg a star, galaxy, gas cloud, or globular cluster. Often quantified by the \glshyperlink{chemical-abundance} of iron relative to hydrogen, [\ce{Fe}/\ce{H}] within the object, and scaled to Solar abundance. 
-    }%
-}
-
-\newglossaryentry{chemical-abundance}{%
-    name={chemical abundance},
-    description={
-    Chemical abundances provide quantification of the elemental abundances and abundance ratios (\eg \glshyperlink{metallicity} [\ce{Fe}/\ce{H}], \glshyperlink{alpha-abundance} [$\alpha$/\ce{Fe}]) in an astrophysical object. For galaxies and clusters, this provides a means to characterize the stellar population, and is commonly used to infer its chemical enrichment history and star-formation timescale.
-    }%
-}
-
-\newglossaryentry{mass-metallicity-relation}{%
-    name={mass-metallicity relation},
-    description={See \glshyperlink{blue-tilt}.
-    }%
-}
-
-\newglossaryentry{blue-tilt}{%
-    name={blue tilt},
-    description={The empirical mass--metallicity relation observed among metal-poor (blue) \glsnousepl{gc}, in which cluster color (or \glshyperlink{metallicity}) increases systematically with mass. This trend is generally interpreted as arising from self-enrichment in the most massive clusters and provides evidence that \glsnouse{gc} formation efficiency and chemical retention depend on cluster mass.}%
-}
-
-\newglossaryentry{alpha-element}{%
-    name={$\alpha$-element},
-    plural={$\alpha$-elements},
+\newglossaryentry{conservation-energy}{%
+    name={conservation of energy},
     description={%
-    $\alpha$-elements are built primarily by adding helium nuclei ($\alpha$ particles) during stellar nucleosynthesis. The most commonly used elements are O, Ne, Mg, Si, S, Ca, Ti. They are also produced rapidly in core-collapse (Type II) \glslinkpl{supernova} from massive stars ($\gtrsim\!\qty{8}{\Msun}$), which explode on short timescales ($\lesssim\!\qtyrange{10}{30}{\mega\year}$ after star formation). 
+    The principle that the total energy of an isolated system remains
+    constant, although energy may be transferred between components or
+    transformed from one form into another.
     }%
 }
 
-\newglossaryentry{type-I-supernova}{%
-  name={Type I supernova},
-  plural={Type I supernovae},
-  description={%
-    A Type~I supernova is a stellar explosion whose optical spectrum lacks prominent hydrogen lines. These events are generally associated with evolved stellar systems and arise from progenitors that have lost or exhausted their hydrogen envelopes prior to explosion. Type~I supernovae include thermonuclear explosions of compact stars as well as some core-collapse events from stripped massive stars, and are distinguished observationally from \glslink{type-II-supernova}{Type~II supernovae} by their spectral characteristics.
-  }%
+\newglossaryentry{momentum}{%
+    name={momentum},
+    description={%
+    A vector quantity defined classically as the product of an object's
+    mass and velocity, $\mathbf{p}=m\mathbf{v}$. For an isolated system,
+    total momentum is conserved.
+    }%
 }
 
-\newglossaryentry{type-II-supernova}{%
-  name={Type II supernova},
-  plural={Type II supernovae},
-  description={%
-    A Type~II supernova is a stellar explosion whose spectrum exhibits strong hydrogen lines, 
-    indicating the presence of a hydrogen-rich envelope at the time of explosion. 
-    These events result from the gravitational core collapse of massive stars 
-    at the end of their nuclear-burning lifetimes and are closely associated with recent star formation. 
-    Type~II supernovae are a major source of kinetic energy and heavy elements injected into the 
-    \glsnouse{ism} and \glsnouse{icm}, and are observationally distinct from 
-    \glslink{type-I-supernova}{Type~I supernovae}.%
-  }%
+\newglossaryentry{uncertainty}{%
+    name={measurement uncertainty},
+    description={%
+    A quantitative characterization of the range of values that may
+    reasonably be attributed to a measured quantity. Measurement
+    uncertainty may contain both random and systematic contributions.
+    }%
+}
+
+\newglossaryentry{systematic-error}{%
+    name={systematic error},
+    description={%
+    A persistent bias or offset in a measurement or analysis that does not
+    average to zero when observations are repeated. Systematic effects may
+    arise from calibration, instrumentation, methodology, or model
+    assumptions. See also \glshyperlink{random-error}.
+    }%
+}
+
+\newglossaryentry{random-error}{%
+    name={random error},
+    description={%
+    Variation in repeated measurements arising from stochastic fluctuations
+    or unpredictable influences. Random errors can often be reduced by
+    increasing the number of independent measurements. See also
+    \glshyperlink{systematic-error}.
+    }%
+}
+
+\newglossaryentry{calibration}{%
+    name={calibration},
+    description={%
+    The process of establishing the relationship between the output of an
+    instrument or measurement system and known reference values.
+    }%
+}
+
+\newglossaryentry{model}{%
+    name={scientific model},
+    description={%
+    A mathematical, computational, or conceptual representation of a
+    physical system used to describe observations, test hypotheses, or
+    generate predictions.
+    }%
+}
+
+\newglossaryentry{parameter}{%
+    name={model parameter},
+    description={%
+    A quantity appearing in a \glshyperlink{model} whose value controls
+    some aspect of the model's behavior and may be specified, measured, or
+    inferred from data.
+    }%
+}
+
+\newglossaryentry{residual}{%
+    name={residual},
+    description={%
+    The difference between an observed or measured value and the
+    corresponding value predicted by a model.
+    }%
+}
+
+\newglossaryentry{normal-distribution}{%
+    name={normal distribution},
+    description={%
+    A continuous probability distribution characterized by a mean and
+    variance and having a symmetric, bell-shaped probability density
+    function. It is also commonly known as the Gaussian distribution.
+    }%
+}
+
+\newglossaryentry{correlation}{%
+    name={correlation},
+    description={%
+    A statistical association between two variables. Correlation describes
+    the degree to which the variables vary together but does not, by itself,
+    establish a causal relationship.
+    }%
+}
+
+\newglossaryentry{reproducibility}{%
+    name={reproducibility},
+    description={%
+    The extent to which an analysis or result can be independently obtained
+    using the same data, methods, and computational procedures.
+    }%
 }

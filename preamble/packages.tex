@@ -143,14 +143,39 @@
 \usepackage[abbreviations, nonumberlist]{glossaries-extra}
 % \setlength{\glsgroupskip}{0pt}
 \renewcommand*{\glsgroupskip}{}%
-% Galaxy types / stellar associations
-\newglossary[gtl]{galtype}{glo}{glg}{Galaxy Types / Stellar Associations}
-% Astrophysical concepts & techniques
-\newglossary[atl]{asttype}{ato}{atg}{Astrophysical Concepts \& Techniques}
-% Missions / Facilities
-\newglossary[mix]{mistype}{mil}{mis}{Missions / Facilities}
-% Miscellaneous
-\newglossary[mox]{othertype}{mol}{mos}{Miscellaneous}
+
+% --------------------------------------------------------------------------
+% Acronym / glossary type registration
+%
+% \DeclareAcronymType
+%   {internal type name}
+%   {log extension}
+%   {output extension}
+%   {input extension}
+%   {printed section title}
+% --------------------------------------------------------------------------
+\usepackage{etoolbox}
+\newcommand{\AllAcronymSections}{}
+
+\newcommand{\DeclareAcronymType}[5]{%
+    % Create the glossary type
+    \newglossary[#2]{#1}{#3}{#4}{#5}%
+    %
+    % Register it for automatic printing later
+    \gappto\AllAcronymSections{%
+        \printacronymsection{#1}{#5}%
+    }%
+}
+
+
+% % Galaxy types / stellar associations
+% \newglossary[gtl]{galtype}{glo}{glg}{Galaxy Types / Stellar Associations}
+% % Astrophysical concepts & techniques
+% \newglossary[atl]{asttype}{ato}{atg}{Astrophysical Concepts \& Techniques}
+% % Missions / Facilities
+% \newglossary[mix]{mistype}{mil}{mis}{Missions / Facilities}
+% % Miscellaneous
+% \newglossary[mox]{othertype}{mol}{mos}{Miscellaneous}
 
 \setabbreviationstyle{long-short}
 % Use the internal (no-index) glossaries, so no makeglossaries step needed
