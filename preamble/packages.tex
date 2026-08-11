@@ -1,30 +1,4 @@
-%%% The following looks horrible, but essentially sets up biblatex for producing
-%%% bibliographies that look nice (you likely will not even need this)
-% \usepackage[style=numeric, maxcitenames=2, isbn=false, url=false,
-% giveninits=true, doi=false, eprint=false, dashed=false, date=year,
-% related=false, mergedate=true]{biblatex}
-% \renewbibmacro{in:}{%
-%   \ifboolexpr{%
-%      test {\ifentrytype{article}}%
-%      or
-%      test {\ifentrytype{inproceedings}}%
-%   }{}{\printtext{\bibstring{in}\intitlepunct}}%
-% }
-% \renewbibmacro*{cite:labelyear+extrayear}{%
-%   \ifentrytype{online}
-%     {}
-%     {\iffieldundef{labelyear}
-%       {}
-%       {\printtext[bibhyperref]{%
-%          \printfield{labelyear}
-%          \printfield{extrayear}}}}}
 
-% \AtEveryBibitem{%
-%   \clearfield{pagetotal}%
-% }
-
-% \DeclareFieldFormat[article,inbook,incollection,techreport,inproceedings,patent,thesis,unpublished]{title}{#1\isdot}
-% \DeclareFieldFormat{pages}{#1}
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage[
@@ -42,9 +16,8 @@
   giveninits=true,    % <-- use initials, not full 
 ]{biblatex}
 
-% load bibliography files (per chapter) here
+% load bibliography file here
 \addbibresource{preamble/bibliography.bib} % .bib file(s)
-% \addbibresource{sections/bibliography/Paper_1_references.bib}
 
 % Configure additional bibliography items
 % Only print year, suppress month/day in bibliography
@@ -75,25 +48,12 @@
 
 \usepackage{titlesec} % For advanced section formatting and resolving \sf@counterlist issue
 \usepackage{tocloft}
-% \usepackage[numbers, sort]{natbib}
-% \bibliographystyle{unsrtnat}
-% \usepackage[
-% backend=biber,
-% citestyle=numeric,
-% sorting=ynt
-% ]{biblatex}
-% \addbibresource{hw1.bib} %file for references
 
 \usepackage{lipsum}
 \usepackage[plain]{algorithm} % algorithms package
 \usepackage{algpseudocode} % pseudo-code package
-% \usepackage{amsbsy} % for producing bold maths symbols
-% \usepackage{amsfonts} % an extended set of fonts for maths
-% \usepackage{lmodern}
-% \usepackage{amssymb} % various maths symbols
 \usepackage{bbm}
 \usepackage{bm}
-% \usepackage{amsthm} % for producing theorem-like environments
 \usepackage{datetime2} % managing dates and times
 \usepackage{delimseasy} % makes easy the manual sizing of brackets, square brackets, and curly brackets
 
@@ -124,7 +84,6 @@
 \usepackage[version=4]{mhchem}
 \usepackage{contour}
 
-% \usepackage{xcolor}
 % Define softer custom tones (optional)
 \definecolor{linkblue}{HTML}{1A4A9C}
 \definecolor{linkred}{HTML}{9C1A1A}
@@ -166,16 +125,6 @@
         \printacronymsection{#1}{#5}%
     }%
 }
-
-
-% % Galaxy types / stellar associations
-% \newglossary[gtl]{galtype}{glo}{glg}{Galaxy Types / Stellar Associations}
-% % Astrophysical concepts & techniques
-% \newglossary[atl]{asttype}{ato}{atg}{Astrophysical Concepts \& Techniques}
-% % Missions / Facilities
-% \newglossary[mix]{mistype}{mil}{mis}{Missions / Facilities}
-% % Miscellaneous
-% \newglossary[mox]{othertype}{mol}{mos}{Miscellaneous}
 
 \setabbreviationstyle{long-short}
 % Use the internal (no-index) glossaries, so no makeglossaries step needed
@@ -261,21 +210,9 @@
 
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 
-%\usepackage{mathpazo}
-
-%\setmainfont{Times New Roman}
-%\setmainfont{Comic Sans MS}
-
 \usepackage{docmute}
-% \usepackage{booktabs}
-% \usepackage{microtype}
-% \usepackage[colorlinks=false]{hyperref}
-% \usepackage[capitalize]{cleveref}
 \usepackage{showkeys}
 \usepackage[document]{ragged2e} % for justification and alignment
-% \usepackage{xcolor}
-% \usepackage{amsmath}
-% \usepackage{amssymb}
 \usepackage{caption}
 \usepackage[export]{adjustbox}
 \usepackage[]{mdframed}
@@ -290,10 +227,6 @@
 \fi
 
 \usepackage{preamble/aas_macros}
-% \usepackage{preamble/deluxetable}
-
-% \usepackage{siunitx}
-% \usepackage[sort&compress,numbers]{natbib}
 
 % Need to load this after natbib has been loaded (in packages) else
 % spacing is wrong - this is an issue with Overleaf processing.

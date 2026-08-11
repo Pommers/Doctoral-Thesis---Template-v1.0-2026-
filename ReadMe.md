@@ -2,231 +2,169 @@
 
 ## Summary
 
-This template is derived from an older UTRGV structured format template for Masters Thesis and PhD Dissertations, but has been updated for the requirements in 2026. 
+This template is derived from an earlier UTRGV structured-format template for Master's theses and Ph.D. dissertations and has been updated to reflect UTRGV formatting requirements used in 2026.
 
-Additional functionality for previously published manuscripts, including declarations, has also been included as part of the class (.cls) file.
+Additional functionality is included for dissertation chapters based on previously published or submitted manuscripts, including chapter declarations and author-contribution statements.
+
+> **Important:** University formatting requirements may change. This template 
+> is intended to assist with document preparation, but students remain
+> responsible for checking the current UTRGV Graduate College requirements
+> before submission.
 
 ## Quick Start
 
-The main changes you will need to make using this template, will be to amend and personalise the `settings.tex` file (in the `preamble` subfolder). This file includes your name, the title of your thesis or dissertation, and you committee member names. If you have any prepublished works you are including as chapters, these can also be defined in the `settings.tex` file.
+Most users should only need to modify a small number of files.
 
-## Overview
+1. Edit `preamble/settings.tex` to enter:
+   - your name;
+   - degree and major;
+   - graduation month and year;
+   - dissertation or thesis title;
+   - advisor and committee members;
+   - details of any published or submitted manuscripts included as chapters.
 
-It is split into three main parts
-- **main.tex** - this is the main document which structures the contents, and includes features such as the Front matter (title page, copyright, abstract placeholder), Table of Contents, List of Figures, etc. Chapters can be 'input' in order to include them in the document.
-- **sections folder** - This is a subfolder which will contain your additional sections, such as the *abstract*, *acknowledgments*, *dedications*, etc. These must be referenced and input in the relevant section of the `main.tex` document (see above). Many of these are optional, depending upon the type of document.
-- **chapters folder** - This is a subfolder which will contain all of your chapters. These must be referenced and input in the relevant section of the `main.tex` document (see above), but this is where the meat of your content should be included.
-- **preamble folder** - This is just a folder containing files which include useful packages,
+2. Replace the example material in the `frontmatter/` directory with your own abstract, acknowledgments, dedication, and biographical material as appropriate.
 
-## Acronyms and Glossary
+3. Replace or add chapter files in the `chapters/` directory.
 
-The file `acronyms-glossary.tex` contains the configuration and example
-definitions for the dissertation acronym and glossary system.
+4. Add the chapter files to `main.tex` in the order in which they should appear.
 
-It is designed so that most users should only need to edit this single file.
-The template supports abbreviation/acronym entries, standalone glossary
-entries, linked abbreviation–glossary pairs, and multiple acronym categories
-that are printed automatically in separate sections.
+5. Replace the example bibliography, acronym, and glossary entries with those required for your own document.
 
-### Acronym categories
+6. Compile `main.tex`.
 
-Acronym categories are declared near the top of `acronyms-glossary.tex`
-using:
+The supplied files contain example content and comments showing how the template-specific features are used. Example material should be removed or replaced before submission.
 
-```latex
-\DeclareAcronymType
-    {internal-name}
-    {log-extension}
-    {output-extension}
-    {input-extension}
-    {Printed Section Title}
-```
+## Project Structure
 
-For example:
+The template is divided into several main components:
 
-```latex
-\DeclareAcronymType
-    {phystype}
-    {phl}
-    {pho}
-    {phg}
-    {Physical Quantities and Concepts}
-```
+- **`main.tex`**  
+  The main document. This controls the overall structure of the thesis or dissertation, including front matter, contents pages, chapters, bibliography, and appendices.
 
-The template currently defines categories for:
+- **`frontmatter/`**  
+  Contains front-matter material such as the abstract, acknowledgments, dedication, and biographical section. Some of these components are optional depending on the document and current Graduate College requirements.
 
-- Physical Quantities and Concepts
-- Statistics and Mathematics
-- Computation and Analysis
-- Scientific Organizations and Facilities
-- Miscellaneous
+- **`chapters/`**  
+  Contains the main dissertation or thesis chapters. Chapter files are included from `main.tex`.
 
-The internal type name, such as `phystype`, is used when defining an
-abbreviation:
+- **`appendices/`**  
+  Contains supplementary material included after the main dissertation chapters.
 
-```latex
-\newabbreviation[type=phystype]{emf}{EMF}{electromotive force}
-```
+- **`preamble/`**  
+  Contains document configuration, metadata, packages, macros, bibliography information, and acronym/glossary definitions.
 
-The printed acronym sections are generated automatically from the declared
-types. Therefore, if a category is added, removed, or renamed using
-`\DeclareAcronymType`, there is no separate list of acronym sections that
-must also be edited.
+- **`figures/`**  
+  Recommended location for figures used throughout the document. Additional subdirectories may be created for individual chapters if useful.
 
-The three file extensions associated with each category must be unique. Their
-particular names are otherwise unimportant; the supplied examples use
-mnemonic three-letter extensions.
+- **`UTRGVthesis.cls`**  
+  Defines the institutional document formatting and template-specific commands. Most users should not need to edit this file.
 
-### Abbreviations and acronyms
+## Common Tasks
 
-An abbreviation without a corresponding glossary definition may be added
-using:
+### Changing personal and dissertation information
 
-```latex
-\newabbreviation[type=stattype]{pca}{PCA}{principal component analysis}
-```
-
-The three principal arguments are:
+Edit:
 
 ```text
-{label}{short form}{long form}
+preamble/settings.tex
 ```
 
-The `label` is the internal LaTeX identifier and is used when referring to
-the abbreviation in the dissertation.
+This file contains the metadata used to construct the title page and other front-matter elements.
+
+### Adding chapters
+
+Create or copy a chapter file in `chapters/`, then include it at the appropriate location in `main.tex`.
 
 For example:
 
 ```latex
-\gls{pca}
+\input{chapters/02-example-chapter}
 ```
 
-On first use, the glossary package normally prints the expanded form and
-abbreviation; subsequent uses print the abbreviated form according to the
-configured glossary style.
+The supplied chapter files demonstrate conventional research chapters, manuscript-based chapters, discussion/synthesis, and conclusions. Their structure is illustrative rather than mandatory and should be adapted to the requirements of the research and discipline.
 
-### Glossary entries
+### Published or submitted manuscript chapters
 
-A term that does not require an abbreviation may be defined using
-`\newglossaryentry`:
+The template includes commands for identifying chapters that are based on published, accepted, or submitted manuscripts and for providing relevant publication and author-contribution information.
 
-```latex
-\newglossaryentry{calibration}{%
-    name={calibration},
-    description={%
-        The process of establishing the relationship between the output of an
-        instrument or measurement system and known reference values.
-    }%
-}
-```
+Publication metadata should be entered in `preamble/settings.tex`, with the corresponding declaration used at the beginning of the appropriate chapter.
 
-It can then be referenced in the dissertation with:
+The examples supplied with the template illustrate the expected syntax.
 
-```latex
-\gls{calibration}
-```
+Students should also confirm any publisher requirements concerning reuse, copyright, licensing, or attribution before reproducing published material.
 
-Glossary entries may also refer to one another where useful.
+### Bibliography
 
-### Linked abbreviation and glossary entries
+Bibliographic references are stored in the supplied `.bib` file. 
 
-Some terms are useful both as abbreviations and as more detailed glossary
-entries. For these cases, the template provides the custom command
-`\newabbrglspair`.
+The template includes fictitious example references to demonstrate the required BibTeX syntax. These should be replaced with the references used in the dissertation.
 
-For example:
+### Acronyms and Glossary
 
-```latex
-\newabbrglspair[type=stattype]
-    {pdf}
-    {PDF}
-    {probability density function}
-    {probability-density-function}
-    {%
-        A function describing the relative likelihood that a continuous
-        random variable takes a particular value.
-    }
-    {}{}
-```
-
-The arguments are:
+Acronyms, abbreviations, glossary entries, and linked abbreviation–glossary definitions are configured in:
 
 ```text
-[type=...]
-{abbreviation label}
-{short form}
-{long form}
-{glossary label}
-{glossary description}
-{short-form plural}
-{long-form / glossary plural}
+preamble/acronyms-glossary.tex
 ```
 
-The final two plural arguments may be left empty when the default plural forms
-are appropriate.
+The template can automatically group acronym entries into user-defined categories.
 
-For terms with irregular or otherwise non-standard plurals, supply the plural
-forms explicitly. For example:
+Detailed instructions and examples are provided in:
 
-```latex
-\newabbrglspair[type=stattype]
-    {dof}
-    {DOF}
-    {degree of freedom}
-    {degree-of-freedom}
-    {%
-        An independent quantity or parameter that may vary within a physical
-        or statistical system.
-    }
-    {DOFs}
-    {degrees of freedom}
+```text
+documentation/acronyms-and-glossary.md
 ```
 
-The paired definition automatically creates both the abbreviation and the
-corresponding glossary entry and provides links between the two.
+Most users should not need to modify the underlying glossary macros.
 
-### Using entries in the dissertation
+## Template-Specific Files
 
-The most commonly used glossary commands are:
+The template contains both content files and files that control formatting.
 
-```latex
-\gls{label}      % normal use
-\Gls{label}      % capitalized form
-\glspl{label}    % plural form
-\Glspl{label}    % capitalized plural form
-```
+As a general rule:
 
-For abbreviation entries, the template also supports the commands provided by
-`glossaries-extra`, such as:
+**Normally edit:**
+- `main.tex`
+- `preamble/settings.tex`
+- chapter files
+- front-matter files
+- bibliography entries
+- acronym and glossary definitions
 
-```latex
-\glsxtrshort{label}
-\glsxtrlong{label}
-\glsxtrfull{label}
-```
+**Edit only if required:**
+- package configuration
+- user-defined macros and commands
 
-Use glossary commands rather than typing abbreviations manually wherever
-possible. This allows first-use expansion, pluralization, hyperlinks, and the
-printed acronym and glossary lists to remain consistent.
+**Normally leave unchanged:**
+- `UTRGVthesis.cls`
+- internal template formatting commands
 
-### Adding or changing categories
+Changes to the class file may affect institutional formatting throughout the document.
 
-To create a new acronym category:
+## Documentation
 
-1. Add a new `\DeclareAcronymType` declaration near the top of
-   `acronyms-glossary.tex`.
-2. Give the new type a unique internal name and unique file extensions.
-3. Use that internal type name in new `\newabbreviation` or
-   `\newabbrglspair` entries.
+Additional documentation for template-specific features is provided in the `documentation/` directory.
 
-No changes are required in the acronym appendix. Registered categories are
-printed automatically.
+Current guides include:
 
-### Removing the example entries
+- `acronyms-and-glossary.md` — acronym and glossary definitions, categories, linked entries, and usage.
 
-The entries supplied with the template are illustrative only. They may be
-edited, replaced, or deleted as required.
+Further documentation may be added for features that require more explanation than is appropriate in this README.
 
-Before submitting the dissertation, remove any unused example terms and
-confirm that all abbreviations and glossary definitions correspond to the
-actual content of the dissertation.
+## Before Submission
+
+Before producing the final PDF, check that:
+
+- all example and placeholder content has been removed;
+- personal, degree, and committee information is correct;
+- chapter titles and numbering are correct;
+- all figures, tables, references, acronyms, and glossary entries are present;
+- published-material declarations are complete where required;
+- the Table of Contents, List of Figures, and List of Tables are current;
+- no unresolved LaTeX references or citations remain;
+- the final PDF has been checked against the current UTRGV Graduate College
+  formatting requirements.
+
+The formatting implemented by this template reflects the requirements used when the template was prepared. It should not be treated as a substitute for the current official university guidance.
+

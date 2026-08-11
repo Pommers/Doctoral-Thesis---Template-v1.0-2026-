@@ -300,21 +300,6 @@
 
 \setlength\bibindent{2em}
 
-% \makeatletter
-% \renewcommand\NAT@bibsetnum[1]{\settowidth\labelwidth{\@biblabel{#1}}%
-%    \setlength{\leftmargin}{\bibindent}\addtolength{\leftmargin}{\dimexpr\labelwidth+\labelsep\relax}%
-%    \setlength{\itemindent}{-\bibindent}%
-%    \setlength{\listparindent}{\itemindent}
-% \setlength{\itemsep}{\bibsep}\setlength{\parsep}{\z@}%
-%    \ifNAT@openbib
-%      \addtolength{\leftmargin}{\bibindent}%
-%      \setlength{\itemindent}{-\bibindent}%
-%      \setlength{\listparindent}{\itemindent}%
-%      \setlength{\parsep}{0pt}%
-%    \fi
-% }
-% \makeatother
-
 %\newtotcounter{citesnum}
 \def\oldcite{} \let\oldcite=\cite
 \def\cite{\stepcounter{citesnum}\oldcite}
@@ -341,25 +326,6 @@
 \newtotcounter{citehits}      % counts each cited key occurrence (incl repeats)
 \newtotcounter{citedunique}   % counts unique keys cited at least once
 \newtotcounter{citerepeats}   % counts repeat citations of already-seen keys
-
-% \AtEveryCitekey{%
-%   % count a "hit" for every citekey, every time
-%   \stepcounter{citehits}%
-
-%   % stable key
-%   \edef\blx@tmpkey{\thefield{entrykey}}%
-
-%   % count uniques vs repeats
-%   \ifcsundef{blx@seen@\blx@tmpkey}
-%     {%
-%       \csdef{blx@seen@\blx@tmpkey}{1}%
-%       \stepcounter{citedunique}%
-%     }
-%     {%
-%       \stepcounter{citerepeats}%
-%     }%
-% }
-
 
 \newcommand{\chapteropen}{%
   \clearpage
@@ -455,36 +421,35 @@
     \printbibliography[title={\bibname}]
 }
 
-
 % Reproduce AASTeX-style \dataset and \software commands
 \makeatletter
-
-% Save existing \doi if it exists
-\let\savedoi\doi
-
-% \dataset{URL}
-% \dataset[Label]{URL}
-% Also allows \dataset{\doi{10.xxxx/yyyy}}
-\newcommand{\dataset}{%
-  \begingroup
-  \def\doi##1{https://doi.org/##1}%
-  \@ifnextchar[{\ydataset}{\xdataset}%
-}
-
-\newcommand{\xdataset}[1]{%
-  \href{#1}{[DATASET]}%
-  \endgroup
-}
-
-\newcommand{\ydataset}[2][]{%
-  \href{#2}{#1}%
-  \endgroup
-}
-
-% \software{Astropy, NumPy, ...}
-\newcommand{\software}[1]{%
-  \par\vskip 6pt%
-  {\large\itshape Software: }#1\par
-}
-
+    
+    % Save existing \doi if it exists
+    \let\savedoi\doi
+    
+    % \dataset{URL}
+    % \dataset[Label]{URL}
+    % Also allows \dataset{\doi{10.xxxx/yyyy}}
+    \newcommand{\dataset}{%
+      \begingroup
+      \def\doi##1{https://doi.org/##1}%
+      \@ifnextchar[{\ydataset}{\xdataset}%
+    }
+    
+    \newcommand{\xdataset}[1]{%
+      \href{#1}{[DATASET]}%
+      \endgroup
+    }
+    
+    \newcommand{\ydataset}[2][]{%
+      \href{#2}{#1}%
+      \endgroup
+    }
+    
+    % \software{Astropy, NumPy, ...}
+    \newcommand{\software}[1]{%
+      \par\vskip 6pt%
+      {\large\itshape Software: }#1\par
+    }
+    
 \makeatother
